@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Ata";
+    Layout = "~/Views/Shared/_LayoutBaskan.cshtml";
+}
+
+<h2>Ata</h2>
+
+<div class="container">
+    <div class="jumbotron">
+
+    </div>
+    <div class="card">
+        <div class="card-header"> İş Ata</div>
+        <div class="card-body">
+            @using (Html.BeginForm("Ata", "Baskan", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label for="txtIs">İş Adı</label>
+                    <input type="text" name="txtIs" class="form-control" id="txtIs" />
+                </div>
+
+                <div class="form-group">
+                    <label for="txtAciklama">İş Açıklama</label>
+                    <input type="text" name="txtAciklama" class="form-control" id="txtAciklama" />
+                </div>
+                <select id="selectPer" name="selectPer">
+                    @foreach (var per in ViewBag.personeller)
+                    {
+                        <option value="@per.personelId">@per.personelAd</option>
+                    }
+
+                </select>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            }
+        </div>
+    </div>
+</div>
